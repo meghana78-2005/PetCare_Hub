@@ -1,0 +1,314 @@
+/* Welcome Page Styles - Pet-themed Design */
+
+.welcome-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.welcome-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f1f8e9 50%, #e0f2f1 100%);
+  z-index: 0;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Header Section */
+.welcome-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 20px 0 10px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.welcome-subtitle {
+  font-size: 1.1rem;
+  color: #5a7785;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Guide Card */
+.guide-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Simba Container - Flex Layout */
+.simba-container {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  align-items: flex-start;
+}
+
+/* Simba Image Placeholder */
+.simba-image {
+  flex-shrink: 0;
+}
+
+.simba-placeholder {
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #b3e5fc 0%, #c8e6c9 100%);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.15);
+}
+
+/* Message Section */
+.message-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Message Bubble */
+.message-bubble {
+  background: linear-gradient(135deg, #e3f2fd 0%, #f1f8e9 100%);
+  border-left: 4px solid #4CAF50;
+  border-radius: 12px;
+  padding: 15px 18px;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
+}
+
+.message-greeting {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.message-main {
+  margin: 5px 0 0 0;
+  font-size: 0.95rem;
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+/* Guide Messages */
+.guide-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guide-message-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(76, 175, 80, 0.05);
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.message-dot {
+  color: #4CAF50;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.message-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #5a7785;
+  font-weight: 500;
+}
+
+/* Action Buttons */
+.button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.welcome-btn {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #6db3f2 0%, #4a90e2 100%);
+  color: white;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(74, 144, 226, 0.3);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+.signup-btn {
+  background: linear-gradient(135deg, #4CAF50 0%, #2e7d32 100%);
+  color: white;
+}
+
+.signup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(76, 175, 80, 0.3);
+}
+
+.signup-btn:active {
+  transform: translateY(0);
+}
+
+/* Decorative Paw Prints */
+.paw-decoration {
+  position: absolute;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.paw-1 {
+  top: 10%;
+  right: 10%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.paw-2 {
+  bottom: 20%;
+  left: 15%;
+  animation: float 5s ease-in-out infinite;
+}
+
+.paw-3 {
+  top: 50%;
+  right: 5%;
+  animation: float 3.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .guide-card {
+    padding: 25px 20px;
+  }
+
+  .simba-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .message-section {
+    width: 100%;
+  }
+
+  .message-bubble {
+    border-left: none;
+    border-top: 4px solid #4CAF50;
+  }
+
+  .button-group {
+    gap: 10px;
+  }
+
+  .welcome-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .simba-placeholder {
+    width: 80px;
+    height: 80px;
+    font-size: 3rem;
+  }
+
+  .paw-decoration {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-content {
+    padding: 20px 15px;
+    gap: 25px;
+  }
+
+  .welcome-title {
+    font-size: 1.6rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .guide-card {
+    padding: 20px 15px;
+  }
+
+  .message-dot {
+    font-size: 1.2rem;
+  }
+
+  .message-text {
+    font-size: 0.8rem;
+  }
+
+  .welcome-btn {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+  }
+}

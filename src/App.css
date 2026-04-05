@@ -1,0 +1,101 @@
+/* html,body{
+  background-color: rgb(2, 23, 23);
+} */
+.home-container{
+  position: relative;
+  margin:20%;
+  padding:17%;
+  justify-content: center;
+  align-items:center;
+  text-align: center;
+  position:relative;
+  height: auto;
+  width: auto;
+  background-color: rgba(6, 190, 252, 0.881);
+  color: rgb(10, 10, 11);
+  border-radius: 2%;
+  /* background: transparent; */
+}
+/* .verlay{
+  position: absolute;
+}
+.home-box{
+  position: relative;
+} */
+.video-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index:-1;
+}
+.Home-container{
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: block;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: #eaf8eb;
+}
+
+.Home-container .home-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=1800&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.Home-container .home-content,
+.Home-container h1,
+.Home-container p,
+.Home-container .card,
+.Home-container .btn {
+  color: #0c2b19 !important;
+}
+
+.Home-container .card {
+  background: rgba(255,255,255,0.95) !important;
+  border: 1px solid #8fbc8f !important;
+}
+
+.Home-container .btn-outline-light {
+  color: #ffffff;
+  background-color: rgba(0, 83, 36, 0.85);
+  border-color: rgba(255,255,255,0.8);
+}
+
+.Home-container .btn-outline-light:hover {
+  color: #ffffff;
+  background-color: rgba(0, 100, 44, 0.95);
+  border-color: rgba(255,255,255,1);
+}
+
+.Home-container .home-content {
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.3);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.Home-container h1, .Home-container p {
+  color: #1f3822;
+}
+
+.Home-container .card {
+  background: rgba(255,255,255,0.82);
+}
+
+h1{
+  color: blue;
+  align-content: center;
+}
