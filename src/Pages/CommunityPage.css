@@ -1,0 +1,52 @@
+.community-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eaf6ff, #dff6ff);
+  padding: 100px 20px 60px;
+  color: #333;
+}
+
+.community-shell {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.community-section {
+  display: grid;
+  gap: 24px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, #fff8e1, #fff3cd);
+  border-radius: 20px;
+  border: 3px solid #4caf50;
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+}
+
+.page-header h1 {
+  margin: 0 0 12px;
+  color: #2e7d32;
+  font-size: 32px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-header p {
+  margin: 0;
+  color: #4a6741;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.community-section h1 {
+  font-size: 32px;
+  margin: 0 0 8px;
+  color: #333;
+}
+
+.community-section p {
+  font-size: 16px;
+  color: #666;
+  margin: 0 0 24px;
+}

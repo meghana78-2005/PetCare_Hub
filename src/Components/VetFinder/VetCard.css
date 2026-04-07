@@ -1,0 +1,201 @@
+.vet-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.vet-card:hover {
+  border-color: #4caf50;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+  transform: translateY(-2px);
+}
+
+.vet-card.selected {
+  border-color: #4caf50;
+  background: #f8fff8;
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.25);
+}
+
+.vet-card.selected::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #4caf50;
+  border-radius: 12px 12px 0 0;
+}
+
+.vet-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.vet-info {
+  flex: 1;
+}
+
+.vet-name-type {
+  margin-bottom: 8px;
+}
+
+.vet-name {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.2;
+}
+
+.vet-type {
+  display: inline-block;
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.vet-status {
+  margin-left: 12px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-badge.open {
+  background: #e8f5e8;
+  color: #2e7d32;
+}
+
+.status-badge.closed {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.vet-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.stars {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.rating-number {
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+}
+
+.vet-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.vet-address,
+.vet-phone,
+.vet-distance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.address-icon,
+.phone-icon,
+.distance-icon {
+  font-size: 12px;
+  width: 16px;
+  text-align: center;
+}
+
+.vet-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.details-btn {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.details-btn:hover {
+  background: #e0e0e0;
+}
+
+.directions-btn {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.directions-btn:hover {
+  background: #bbdefb;
+}
+
+.call-btn {
+  background: #e8f5e8;
+  color: #2e7d32;
+}
+
+.call-btn:hover {
+  background: #c8e6c9;
+}
+
+@media (max-width: 768px) {
+  .vet-card-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .vet-status {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+  
+  .vet-rating {
+    align-items: flex-start;
+  }
+  
+  .vet-card-actions {
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    width: 100%;
+  }
+}

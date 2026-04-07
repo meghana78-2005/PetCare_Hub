@@ -1,0 +1,177 @@
+.simba-assistant {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  animation: slideInRight 0.5s ease-out;
+}
+
+.simba-avatar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ff9800, #ff6b00);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(255, 152, 0, 0.4);
+  animation: bounce 2s infinite;
+}
+
+.simba-face {
+  font-size: 30px;
+  animation: roar 3s infinite;
+}
+
+.simba-bubble {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  background: white;
+  border-radius: 20px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 250px;
+  max-width: 300px;
+  border: 2px solid #ff9800;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.simba-message {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-right: 30px;
+  animation: typewriter 0.5s ease-out;
+}
+
+.simba-dismiss {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.simba-dismiss:hover {
+  background: #ff6b00;
+  transform: scale(1.1);
+}
+
+.simba-paw-prints {
+  position: absolute;
+  bottom: -10px;
+  left: -20px;
+  display: flex;
+  gap: 5px;
+}
+
+.paw-print {
+  font-size: 12px;
+  opacity: 0.6;
+  animation: walk 1s infinite alternate;
+}
+
+.paw-print:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.paw-print:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes roar {
+  0%, 90%, 100% {
+    transform: scale(1);
+  }
+  95% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes walk {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(-3px) rotate(10deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .simba-assistant {
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .simba-avatar {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .simba-face {
+    font-size: 25px;
+  }
+  
+  .simba-bubble {
+    min-width: 200px;
+    max-width: 250px;
+    bottom: 60px;
+  }
+}

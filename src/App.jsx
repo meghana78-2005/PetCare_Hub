@@ -6,9 +6,10 @@ import SignUp from "./Pages/SignUp";
 import SignIn from "./Pages/SignIn";
 import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
-import Community from "./Pages/Community";
-import HospitalRoutes from "./Pages/HospitalRoutes";
-import VaccineTracker from "./Pages/VaccineTracker";
+import CommunityPage from "./Pages/CommunityPage";
+import VetFinder from "./Pages/VetFinder";
+import VaccineTrackerPage from "./Pages/VaccineTrackerPage";
+import NotificationSettings from "./Pages/NotificationSettings";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavScrollExample from "./Components/NavBarComp";
 import Dashboard from "./Pages/Dashboard";
@@ -16,20 +17,28 @@ import Dashboard from "./Pages/Dashboard";
 function App() {
   const { user } = useAuth();
 
+  // Debug: Log user state to console
+  console.log('App - Current user state:', user);
+  console.log('App - User is null:', user === null);
+  console.log('App - User type:', typeof user);
+
   return (
     <BrowserRouter>
-    {/* <NavScrollExample/> */}
       <Routes>
-        <Route path="/" element={<Welcome />} />
+        <Route 
+          path="/" 
+          element={user !== null ? <Navigate to="/home" replace /> : <Welcome />} 
+        />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/signin" element={<SignIn />} />
 
-        <Route path="/home" element={user ? <Home /> : <Navigate to="/signin" />} />
-        <Route path="/profile" element={user ? <Profile /> : <Navigate to="/signin" />} />
-        <Route path="/community" element={user ? <Community /> : <Navigate to="/signin" />} />
-        <Route path="/hospital-routes" element={user ? <HospitalRoutes /> : <Navigate to="/signin" />} />
-        <Route path="/vaccine-tracker" element={user ? <VaccineTracker /> : <Navigate to="/signin" />} />
+        <Route path="/home" element={user !== null ? <Home /> : <Navigate to="/signin" />} />
+        <Route path="/profile" element={user !== null ? <Profile /> : <Navigate to="/signin" />} />
+        <Route path="/community" element={user !== null ? <CommunityPage /> : <Navigate to="/signin" />} />
+        <Route path="/vet-finder" element={user !== null ? <VetFinder /> : <Navigate to="/signin" />} />
+        <Route path="/vaccine-tracker" element={user !== null ? <VaccineTrackerPage /> : <Navigate to="/signin" />} />
+        <Route path="/notification-settings" element={user !== null ? <NotificationSettings /> : <Navigate to="/signin" />} />
         {/* <Route path="/dashboard" element={<Dashboard/>} />  */}
       </Routes>
     </BrowserRouter >

@@ -1,7 +1,7 @@
-const UserCard = ({ avatar, name, email, onEdit }) => {
+const UserCard = ({ avatar, name, email, onEdit, showAvatar = false }) => {
   return (
     <section className="profile-card user-card">
-      <div className="user-avatar-wrap">
+      <div className={`user-avatar-wrap ${showAvatar ? 'small-avatar' : ''}`}>
         <img className="user-avatar" src={avatar} alt={`${name} avatar`} />
       </div>
       <div className="user-info">

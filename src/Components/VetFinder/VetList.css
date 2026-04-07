@@ -1,0 +1,85 @@
+.vet-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.vet-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.vet-list-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.results-count {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.vet-cards {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vet-list-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.vet-list-empty h3 {
+  margin: 0 0 8px;
+  color: #666;
+  font-size: 18px;
+}
+
+.vet-list-empty p {
+  margin: 0;
+  color: #999;
+  font-size: 14px;
+}
+
+/* Custom scrollbar for vet list */
+.vet-cards::-webkit-scrollbar {
+  width: 6px;
+}
+
+.vet-cards::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.vet-cards::-webkit-scrollbar-thumb {
+  background: #4caf50;
+  border-radius: 3px;
+}
+
+.vet-cards::-webkit-scrollbar-thumb:hover {
+  background: #45a049;
+}

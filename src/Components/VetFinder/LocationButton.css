@@ -1,0 +1,68 @@
+.location-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.location-btn {
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  min-width: 160px;
+}
+
+.location-btn:hover:not(:disabled) {
+  background: #1976d2;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.location-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.location-btn.location-active {
+  background: #4caf50;
+}
+
+.location-btn.location-active:hover {
+  background: #45a049;
+}
+
+.loading-text {
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.location-info {
+  text-align: center;
+  color: #4caf50;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.location-info small {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .location-btn {
+    width: 100%;
+    min-width: auto;
+  }
+}

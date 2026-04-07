@@ -1,0 +1,102 @@
+.vet-finder {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+  padding: 100px 20px 60px;
+  color: #333;
+}
+
+.vet-finder-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.vet-finder-section {
+  display: grid;
+  gap: 24px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, #fff8e1, #fff3cd);
+  border-radius: 20px;
+  border: 3px solid #4caf50;
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+}
+
+.page-header h1 {
+  margin: 0 0 12px;
+  color: #2e7d32;
+  font-size: 32px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-header p {
+  margin: 0;
+  color: #4a6741;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.search-section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+}
+
+.content-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  min-height: 600px;
+}
+
+.vet-list-section {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.map-section {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 100px;
+  height: 600px;
+}
+
+@media (max-width: 968px) {
+  .content-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .map-section {
+    position: static;
+    height: 400px;
+  }
+  
+  .search-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .vet-finder {
+    padding: 100px 10px 60px;
+  }
+  
+  .page-header h1 {
+    font-size: 24px;
+  }
+  
+  .page-header p {
+    font-size: 16px;
+  }
+}
