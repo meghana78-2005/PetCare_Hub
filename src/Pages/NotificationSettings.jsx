@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import NavBarComp from "../Components/NavBarComp";
 import SimbaAssistant from "../Components/SimbaAssistant";
+import BackButton from "../Components/BackButton/BackButton";
 import "./NotificationSettings.css";
 
 const NotificationSettings = () => {
@@ -32,6 +33,10 @@ const NotificationSettings = () => {
       <NavBarComp />
       <main className="notification-settings-shell">
         <div className="notification-settings-section">
+          {/* Back Button */}
+          <div className="notification-settings-header">
+            <BackButton label="Back" />
+          </div>
           <div className="page-header">
             <h1>🔔 Notification Settings</h1>
             <p>Manage your notification preferences</p>

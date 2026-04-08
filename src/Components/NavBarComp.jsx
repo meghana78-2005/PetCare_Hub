@@ -22,7 +22,10 @@ function NavScrollExample() {
   return (
     <Navbar expand="lg" className="bg-success fixed-top navbar-dark" style={{ zIndex: 1030 }}>
       <Container fluid>
-        <Navbar.Brand as={Link} to="/home">PetCare Hub</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/home" className="navbar-brand">
+          <span className="navbar-icon">🐾</span>
+          PetCare Hub
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -30,15 +33,39 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link as={Link} to="/community">Community</Nav.Link>
-            <Nav.Link as={Link} to="/vet-finder">Vet Finder</Nav.Link>
-            <Nav.Link as={Link} to="/vaccine-tracker">Vaccine Tracker</Nav.Link>
+            <Nav.Link as={Link} to="/community" className="nav-link-with-icon">
+              <span className="nav-icon">💬</span>
+              <span className="nav-text">Community</span>
+            </Nav.Link>
+            <Nav.Link as={Link} to="/vet-finder" className="nav-link-with-icon">
+              <span className="nav-icon">🏥</span>
+              <span className="nav-text">Vet Finder</span>
+            </Nav.Link>
+            <Nav.Link as={Link} to="/vaccine-tracker" className="nav-link-with-icon">
+              <span className="nav-icon">💉</span>
+              <span className="nav-text">Vaccine Tracker</span>
+            </Nav.Link>
             <div className="nav-notification-bell">
               <NotificationBell />
             </div>
-            <NavDropdown title={<img src="https://via.placeholder.com/30" alt="Profile" className="rounded-circle" />} id="profile-dropdown">
-              <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
-              <NavDropdown.Item onClick={handleSignOut}>Logout</NavDropdown.Item>
+            <NavDropdown 
+              title={
+                <div className="profile-dropdown-toggle">
+                  <span className="profile-icon">👤</span>
+                  <span className="profile-arrow">▼</span>
+                </div>
+              } 
+              id="profile-dropdown"
+              className="profile-dropdown"
+            >
+              <NavDropdown.Item as={Link} to="/profile" className="dropdown-item-with-icon">
+                <span className="dropdown-icon">⚙️</span>
+                My Profile
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={handleSignOut} className="dropdown-item-with-icon">
+                <span className="dropdown-icon">🚪</span>
+                Logout
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

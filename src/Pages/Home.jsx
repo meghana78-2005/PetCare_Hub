@@ -2,6 +2,7 @@ import { useAuth } from "../Context/AuthContext";
 import { NavbarCollapse } from "react-bootstrap";
 import NavBarComp from "../Components/NavBarComp";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import "./Home.css";
 
 const Home = () => {
   const { user } = useAuth();
@@ -53,15 +54,13 @@ const Home = () => {
             </Card>
           </Col>
         </Row>
-
         <Row className="mt-5 justify-content-center">
           <Col lg={8}>
             <Card className="text-center border-success p-4" style={{ background: 'rgba(255,255,255,0.9)' }}>
               <Card.Title style={{ fontSize: '1.7rem' }}>🐾 Pet Parent Hub</Card.Title>
               <Card.Text>
-                Connect with pet parents, track vaccinations, and find nearby vet routes in a warm and secure community. For cats, dogs, birds, and all companions.
+                Connect with pet parents, track vaccinations, and find nearby vet routes in a warm and secure community. For cats, dogs, birds, and All companions.
               </Card.Text>
-              <button className="btn btn-success mt-3" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Explore Features</button>
             </Card>
           </Col>
         </Row>

@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, setPersistence, browserSessionPersistence } from "firebase/auth";
 import { auth } from "../firebase/FireBaseConfig";
 
 const AuthContext = createContext();
@@ -11,11 +11,18 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (currentUser) => {
-      console.log('Firebase - Auth state changed:', currentUser);
-      setUser(currentUser);
-    });
-    return () => unsub();
+    // Set Firebase to use session persistence (not permanent)
+    setPersistence(auth, browserSessionPersistence)
+      .then(() => {
+        // Now set up the auth state listener
+        const unsub = onAuthStateChanged(auth, (currentUser) => {
+          setUser(currentUser);
+        });
+        return () => unsub();
+      })
+      .catch((error) => {
+        console.error('Error setting auth persistence:', error);
+      });
   }, []);
 
   return (

@@ -1,0 +1,20 @@
+.back-button {
+  position: relative;
+  z-index: 100;
+}
+
+.back-button:hover {
+  transform: translateY(-1px);
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .back-button {
+    padding: '6px 12px';
+    font-size: '12px';
+  }
+}

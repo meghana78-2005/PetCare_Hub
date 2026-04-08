@@ -9,6 +9,7 @@ import PetCard from "../Components/PetCard";
 import VaccinationCard from "../Components/VaccinationCard";
 import ActivityCard from "../Components/ActivityCard";
 import SimbaAssistant from "../Components/SimbaAssistant";
+import BackButton from "../Components/BackButton/BackButton";
 import "./Profile.css";
 
 const Profile = () => {
@@ -18,6 +19,8 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [editingProfile, setEditingProfile] = useState(false);
   const [showSimba, setShowSimba] = useState(true);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const [profileData, setProfileData] = useState({
     displayName: "",
     email: "",
@@ -130,13 +133,21 @@ const Profile = () => {
         });
         setCurrentUser({ ...currentUser, displayName: profileData.displayName });
         setEditingProfile(false);
-        alert("Profile updated successfully!");
+        
+        // Show success message
+        setSuccessMessage("Profile updated successfully!");
+        setShowSuccessMessage(true);
+        setTimeout(() => setShowSuccessMessage(false), 3000);
       } catch (error) {
         console.error("Error updating profile:", error);
-        alert("Error updating profile. Please try again.");
+        setSuccessMessage("Error updating profile. Please try again.");
+        setShowSuccessMessage(true);
+        setTimeout(() => setShowSuccessMessage(false), 3000);
       }
     } else {
-      alert("Please enter a display name");
+      setSuccessMessage("Please enter a display name.");
+      setShowSuccessMessage(true);
+      setTimeout(() => setShowSuccessMessage(false), 3000);
     }
   };
 
@@ -248,8 +259,45 @@ const Profile = () => {
   return (
     <div className="profile-page">
       <NavBarComp />
+      
+      {/* Success Message */}
+      {showSuccessMessage && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: '80px',
+            right: '20px',
+            backgroundColor: successMessage.includes('Error') || successMessage.includes('Please') ? '#f44336' : '#4caf50',
+            color: 'white',
+            padding: '15px 20px',
+            borderRadius: '8px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+            zIndex: '10000',
+            fontSize: '16px',
+            fontWeight: '500',
+            maxWidth: '300px',
+            wordWrap: 'break-word'
+          }}
+        >
+          {successMessage}
+        </div>
+      )}
+      
       <main className="profile-shell">
         <div className="profile-section">
+          {/* Back Button */}
+          <div className="profile-header">
+            {editingProfile ? (
+              <BackButton 
+                label="Cancel" 
+                onClick={handleCancelEdit}
+                style={{ backgroundColor: '#dc3545' }}
+              />
+            ) : (
+              <BackButton label="Back" />
+            )}
+          </div>
+
           {currentUser && !editingProfile && !currentUser.displayName ? (
             <section className="profile-card edit-profile-form">
               <div className="profile-setup-header">
@@ -557,7 +605,7 @@ const Profile = () => {
             </section>
           ) : (
             <>
-              <section className="profile-card">
+              <section className="profile-card pets-card">
                 <div className="pets-header">
                   <div>
                     <h3>My Pets</h3>
@@ -565,8 +613,28 @@ const Profile = () => {
                   </div>
                   <button
                     type="button"
-                    className="secondary-button"
+                    className="add-pet-button"
                     onClick={handleAddPet}
+                    style={{
+                      background: 'linear-gradient(135deg, #28a745 0%, #20c997 100%)',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '8px',
+                      padding: '10px 20px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 2px 8px rgba(40, 167, 69, 0.3)'
+                    }}
+                    onMouseOver={(e) => {
+                      e.target.style.transform = 'translateY(-2px)';
+                      e.target.style.boxShadow = '0 4px 12px rgba(40, 167, 69, 0.4)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.transform = 'translateY(0)';
+                      e.target.style.boxShadow = '0 2px 8px rgba(40, 167, 69, 0.3)';
+                    }}
                   >
                     + Add Pet
                   </button>

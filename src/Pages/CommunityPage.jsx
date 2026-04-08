@@ -4,6 +4,7 @@ import CreatePost from "../Components/Community/CreatePost";
 import PostList from "../Components/Community/PostList";
 import ChatRoom from "../Components/Community/ChatRoom";
 import SimbaAssistant from "../Components/SimbaAssistant";
+import BackButton from "../Components/BackButton/BackButton";
 import { notifyCommunityPost } from "../Utils/NotificationUtils";
 import "../Components/Community/Community.css";
 import "./CommunityPage.css";
@@ -96,18 +97,23 @@ const CommunityPage = () => {
       <NavBarComp />
       <main className="community-shell">
         <div className="community-section">
-          <div className="page-header">
+          {/* Back Button */}
+          <div className="community-header">
+            <BackButton label="Back" />
+          </div>
+          <div className="community-header-content">
             <h1>🐾 Pet Parents Community Hub 🐾</h1>
             <p>Share your pet stories, ask questions, and connect with fellow pet lovers! 🐕🐈🐇</p>
+            <div className="community-stats">
+              <span className="member-count"> members: {memberCount}</span>
+            </div>
           </div>
-          
           <CreatePost onCreatePost={handleCreatePost} />
           <PostList 
             posts={posts} 
             onLike={handleLike} 
             onComment={handleComment} 
           />
-          
           <div className="chat-toggle-section">
             <button 
               className="chat-toggle-btn"
