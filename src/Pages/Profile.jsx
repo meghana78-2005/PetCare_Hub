@@ -46,6 +46,7 @@ const Profile = () => {
 
   // Fetch user-specific pets from Firestore
   const fetchUserPets = async (userId) => {
+    console.log("Fetching pets for user:", userId);
     try {
       const petsRef = collection(db, "pets");
       const q = query(petsRef, where("userId", "==", userId));
@@ -54,16 +55,21 @@ const Profile = () => {
       querySnapshot.forEach((doc) => {
         userPets.push({ id: doc.id, ...doc.data() });
       });
+      console.log("Fetched pets:", userPets);
       setPets(userPets);
       setShowForm(userPets.length === 0);
     } catch (error) {
       console.error("Error fetching pets:", error);
+      setSuccessMessage("Error loading pets. Please refresh the page.");
+      setShowSuccessMessage(true);
+      setTimeout(() => setShowSuccessMessage(false), 3000);
     }
   };
 
   // Listen for auth state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log("Profile: Auth state changed", user ? user.email : "no user");
       setCurrentUser(user);
       if (user) {
         setProfileData({
@@ -82,6 +88,7 @@ const Profile = () => {
         setShowForm(false);
       }
       setLoading(false);
+      console.log("Profile: Loading set to false");
     });
 
     return () => unsubscribe();
@@ -194,11 +201,27 @@ const Profile = () => {
 
   const handleRemovePet = async (petId) => {
     try {
-      await deleteDoc(doc(db, "pets", petId));
-      setPets(pets.filter(pet => pet.id !== petId));
+      // Show confirmation dialog
+      const isConfirmed = window.confirm(
+        "Are you sure you want to remove this pet? This action cannot be undone."
+      );
+      
+      if (isConfirmed) {
+        await deleteDoc(doc(db, "pets", petId));
+        setPets(prevPets => prevPets.filter(pet => pet.id !== petId));
+        
+        // Show success message
+        setSuccessMessage("Pet removed successfully!");
+        setShowSuccessMessage(true);
+        setTimeout(() => setShowSuccessMessage(false), 3000);
+        
+        console.log("Pet deleted from Firebase:", petId);
+      }
     } catch (error) {
       console.error("Error removing pet:", error);
-      alert("Error removing pet. Please try again.");
+      setSuccessMessage("Error removing pet. Please try again.");
+      setShowSuccessMessage(true);
+      setTimeout(() => setShowSuccessMessage(false), 3000);
     }
   };
 
@@ -213,16 +236,30 @@ const Profile = () => {
         };
         const docRef = await addDoc(petsRef, newPet);
         const petWithId = { id: docRef.id, ...newPet };
-        setPets([...pets, petWithId]);
-        setFormData({ name: "", breed: "", age: "", image: "" });
+        
+        // Update local state immediately
+        setPets(prevPets => [...prevPets, petWithId]);
+        
+        // Reset form
+        setFormData({ name: "", breed: "", age: "", image: "", gender: "", weight: "", color: "", personality: "", medicalConditions: "", diet: "" });
         setShowForm(false);
-        alert("Pet saved successfully!");
+        
+        // Show success message
+        setSuccessMessage("Pet saved successfully!");
+        setShowSuccessMessage(true);
+        setTimeout(() => setShowSuccessMessage(false), 3000);
+        
+        console.log("Pet saved to Firebase:", petWithId);
       } catch (error) {
         console.error("Error saving pet:", error);
-        alert("Error saving pet. Please try again.");
+        setSuccessMessage("Error saving pet. Please try again.");
+        setShowSuccessMessage(true);
+        setTimeout(() => setShowSuccessMessage(false), 3000);
       }
     } else {
-      alert("Please fill in all fields");
+      setSuccessMessage("Please fill in all required fields (name, breed, age, and image).");
+      setShowSuccessMessage(true);
+      setTimeout(() => setShowSuccessMessage(false), 3000);
     }
   };
 
@@ -636,7 +673,7 @@ const Profile = () => {
                       e.target.style.boxShadow = '0 2px 8px rgba(40, 167, 69, 0.3)';
                     }}
                   >
-                    + Add Pet
+                    Add Pet
                   </button>
                 </div>
                 <div className="pets-grid">

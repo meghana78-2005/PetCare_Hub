@@ -46,23 +46,25 @@ function NavScrollExample() {
               <span className="nav-text">Vaccine Tracker</span>
             </Nav.Link>
             <div className="nav-notification-bell">
-              <NotificationBell />
+              <NotificationBell/>
             </div>
             <NavDropdown 
               title={
                 <div className="profile-dropdown-toggle">
                   <span className="profile-icon">👤</span>
-                  <span className="profile-arrow">▼</span>
+                  
                 </div>
               } 
               id="profile-dropdown"
               className="profile-dropdown"
             >
               <NavDropdown.Item as={Link} to="/profile" className="dropdown-item-with-icon">
-                <span className="dropdown-icon">⚙️</span>
+                <span className="dropdown-icon">👤</span>
                 My Profile
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={handleSignOut} className="dropdown-item-with-icon">
+              
+              <NavDropdown.Divider />
+              <NavDropdown.Item onClick={handleSignOut} className="dropdown-item-with-icon text-danger">
                 <span className="dropdown-icon">🚪</span>
                 Logout
               </NavDropdown.Item>

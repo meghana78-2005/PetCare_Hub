@@ -162,7 +162,7 @@
 }
 
 .notification-bell-link:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   transform: scale(1.05);
 }
 
@@ -195,7 +195,7 @@
   position: absolute;
   top: -6px;
   right: -6px;
-  background: #f44336;
+  background: #ff6b6b;
   color: white;
   border-radius: 50%;
   width: 16px;
@@ -212,13 +212,13 @@
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(244, 67, 54, 0);
+    box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
   }
 }
 
@@ -240,25 +240,205 @@
     right: -5px;
   }
   
+  /* Show navbar side-by-side directly on mobile */
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: row !important;
+    gap: 0.25rem !important;
+    align-items: center !important;
+  }
+  
   .nav-link-with-icon {
     padding: 6px 8px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: auto !important;
+    transition: all 0.3s ease !important;
+    border-radius: 6px !important;
+  }
+  
+  .nav-link-with-icon:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-1px) !important;
   }
   
   .nav-text {
-    display: none;
+    font-size: 0.7rem;
+    margin-left: 6px;
+    margin-top: 0;
+    display: inline-block !important;
+    transition: all 0.3s ease !important;
   }
   
   .navbar-icon {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    transition: all 0.3s ease !important;
+  }
+  
+  .nav-link-with-icon:hover .navbar-icon {
+    transform: scale(1.1) !important;
+  }
+  
+  .nav-link-with-icon:hover .nav-text {
+    color: rgba(255, 255, 255, 1) !important;
+  }
+  
+  /* Hide hamburger menu on mobile */
+  .navbar-toggler {
+    display: none !important;
+  }
+  
+  /* Mobile-specific navbar adjustments */
+  .navbar {
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1.3rem !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .navbar-brand:hover {
+    transform: scale(1.05) !important;
+  }
+  
+  /* Enhanced profile dropdown for mobile */
+  .profile-dropdown .dropdown-toggle {
+    padding: 6px 10px !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .profile-dropdown .dropdown-toggle:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-1px) !important;
+  }
+  
+  .profile-dropdown .dropdown-menu {
+    margin-top: 0.5rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  /* Touch-friendly improvements */
+  .nav-link-with-icon, .profile-dropdown .dropdown-toggle {
+    min-height: 40px !important;
+  }
+  
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 @media (max-width: 576px) {
   .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 1.1rem !important;
   }
   
   .nav-icon {
     font-size: 1rem;
+  }
+  
+  /* Keep navbar side-by-side directly on small mobile */
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: row !important;
+    gap: 0.2rem !important;
+    align-items: center !important;
+  }
+  
+  .nav-link-with-icon {
+    padding: 4px 6px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: auto !important;
+    transition: all 0.3s ease !important;
+    border-radius: 4px !important;
+  }
+  
+  .nav-link-with-icon:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-1px) !important;
+  }
+  
+  .nav-text {
+    font-size: 0.65rem;
+    margin-left: 4px;
+    margin-top: 0;
+    display: inline-block !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .navbar-icon {
+    font-size: 1rem;
+    transition: all 0.3s ease !important;
+  }
+  
+  .nav-link-with-icon:hover .navbar-icon {
+    transform: scale(1.15) !important;
+  }
+  
+  /* Hide hamburger menu on small mobile */
+  .navbar-toggler {
+    display: none !important;
+  }
+  
+  /* Small mobile adjustments */
+  .navbar {
+    padding: 0.4rem 0.8rem !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .navbar-brand:hover {
+    transform: scale(1.05) !important;
+  }
+  
+  /* Enhanced profile dropdown for small mobile */
+  .profile-dropdown .dropdown-toggle {
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .profile-dropdown .dropdown-toggle:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-1px) !important;
+  }
+  
+  .profile-dropdown .dropdown-menu {
+    margin-top: 0.3rem !important;
+    border-radius: 6px !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  /* Touch-friendly improvements for small mobile */
+  .nav-link-with-icon, .profile-dropdown .dropdown-toggle {
+    min-height: 36px !important;
+  }
+  
+  /* Prevent horizontal scroll on small screens */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Better touch targets */
+  .nav-link-with-icon:active, .profile-dropdown .dropdown-toggle:active {
+    transform: scale(0.95) !important;
+    transition: transform 0.1s ease !important;
   }
 }
